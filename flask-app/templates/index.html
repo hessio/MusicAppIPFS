@@ -4,11 +4,16 @@
     <title>Audio Example</title>
   </head>
   <body>
+	<form action = "/upload" method = "POST" 
+         	enctype = "multipart/form-data">
+         	<input type = "file" name = "file" />
+         	<input type = "submit"/>
+      	</form>   
     <h2>Serving audio files from Flask</h2>
-   {% for file in ads %}
-    <audio controls>
-      <source src="{{ url_for('static', filename=file) }}" type="audio/mpeg">
-    </audio>
+   {% for file in songs %}
+    <p> {{ file }}</p>
+    <audio controls> <source  src={{ url_for('static', filename=file) }} type="audio/mp4" ></audio>
+    
     {% endfor %}
     <p>Click on play icon to play</p>
   </body>
